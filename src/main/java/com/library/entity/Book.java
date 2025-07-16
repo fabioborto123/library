@@ -2,12 +2,14 @@ package com.library.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.SQLDelete;
+
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "books")
-
+@SQLDelete(sql = "UPDATE books SET deleted = true WHERE id = ?")
 @Entity
 public class Book {
 
@@ -24,4 +26,6 @@ public class Book {
     private int availableQuantity;
 
     private String category;
+
+    private Boolean deleted = false;
 }
