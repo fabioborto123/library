@@ -17,6 +17,7 @@ public class BookMapper {
         book.setAuthor(dto.getAuthor());
         book.setCategory(dto.getCategory());
         book.setTotalQuantity(dto.getQuantity());
+        book.setDailyPrice(dto.getDailyPrice());
 
         return book;
     }
@@ -29,6 +30,7 @@ public class BookMapper {
         dto.setCategory(book.getCategory());
         dto.setTotalQuantity(book.getTotalQuantity());
         dto.setAvailableQuantity(book.getAvailableQuantity());
+        dto.setDailyPrice(book.getDailyPrice());
 
         return dto;
     }

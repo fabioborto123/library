@@ -63,6 +63,7 @@ public class BookService {
         savedBook.setCategory(dto.getCategory());
         savedBook.setTotalQuantity(savedBook.getTotalQuantity() + dto.getQuantity());
         savedBook.setAvailableQuantity(savedBook.getAvailableQuantity() + dto.getQuantity());
+        savedBook.setDailyPrice(dto.getDailyPrice());
 
         repository.save(savedBook);
         return mapper.toResponseDto(savedBook);

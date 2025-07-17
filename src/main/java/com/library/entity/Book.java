@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;
 
+import java.math.BigDecimal;
+
 
 @Data
 @AllArgsConstructor
@@ -28,4 +30,7 @@ public class Book {
     private String category;
 
     private Boolean deleted = false;
+
+    private BigDecimal dailyPrice;
+
 }

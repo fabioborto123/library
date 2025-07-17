@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Data
@@ -34,4 +35,6 @@ public class Loan {
     private LocalDate returnDate;
 
     private Boolean returned;
+
+    private BigDecimal rentalPrice;
 }
