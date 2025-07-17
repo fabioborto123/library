@@ -28,8 +28,7 @@ public class BookService {
     }
 
     public BookResponseDto findById(Long id) {
-        return mapper.toResponseDto(repository.findById(id)
-                .orElseThrow(() -> new IdNotFoundException(id)));
+        return mapper.toResponseDto(getBook(id));
     }
 
     public List<BookResponseDto> findAllNotDeleted() {
@@ -48,9 +47,16 @@ public class BookService {
         return mapper.toResponseDtoList(repository.findAllUnavailable());
     }
 
+    public List<BookResponseDto> findByTitle(String title) {
+        return mapper.toResponseDtoList(repository.findByTitle(title));
+    }
+
+    public List<BookResponseDto> findByAuthor(String author) {
+        return mapper.toResponseDtoList(repository.findByAuthor(author));
+    }
+
     public BookResponseDto update(BookRequestDto dto, Long savedBookId) {
-        Book savedBook = repository.findById(savedBookId)
-                .orElseThrow(() -> new IdNotFoundException(savedBookId));
+        Book savedBook = getBook(savedBookId);
 
         savedBook.setTitle(dto.getTitle());
         savedBook.setAuthor(dto.getAuthor());
@@ -63,25 +69,20 @@ public class BookService {
     }
 
     public void delete(Long id) {
-        Book book = repository.findById(id)
-                .orElseThrow(() -> new IdNotFoundException(id));
+        Book book = getBook(id);
         repository.delete(book);
     }
 
     public BookResponseDto restore(Long id) {
-        Book book = repository.findById(id)
-                        .orElseThrow(() -> new IdNotFoundException(id));
-
+        Book book = getBook(id);
         book.setDeleted(false);
         repository.save(book);
         return mapper.toResponseDto(book);
     }
 
-    public BookResponseDto findByTitle(String title) {
-        return mapper.toResponseDto(repository.findByTitle(title));
+    private Book getBook(Long id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new IdNotFoundException(id));
     }
 
-    public List<BookResponseDto> findByAuthor(String author) {
-        return mapper.toResponseDtoList(repository.findByAuthor(author));
-    }
 }

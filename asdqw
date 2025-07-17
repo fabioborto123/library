@@ -1,0 +1,17 @@
+[33mcommit 42a259136794c4af886e2f3ff09a32b0aee38012[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Fábio Bortoletto <fabio.bortoletto@hotmail.com>
+Date:   Wed Jul 16 11:43:41 2025 -0300
+
+    Added most method on book conroller/service/rep
+
+[33mcommit dda0ca9d7c544e90ddd27878761457e06a6bbe5a[m
+Author: Fábio Bortoletto <fabio.bortoletto@hotmail.com>
+Date:   Fri Jul 11 11:38:44 2025 -0300
+
+    Added basic repositories
+
+[33mcommit 0778b3de1562799f45e67d6f7c2cc538ffcb9599[m
+Author: Fábio Bortoletto <fabio.bortoletto@hotmail.com>
+Date:   Thu Jul 10 12:46:18 2025 -0300
+
+    Entities added

@@ -26,13 +26,13 @@ public class BookController {
         return ResponseEntity.created(URI.create("/book" + book.getId())).build();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/books/{id}")
     public ResponseEntity<BookResponseDto> findById(@PathVariable Long id) {
         return ResponseEntity.ok(service.findById(id));
     }
 
     @GetMapping("/books/title/{title}")
-    public ResponseEntity<BookResponseDto> findByTitle(@PathVariable String title) {
+    public ResponseEntity<List<BookResponseDto>> findByTitle(@PathVariable String title) {
         return ResponseEntity.ok(service.findByTitle(title));
     }
 
@@ -61,18 +61,18 @@ public class BookController {
         return ResponseEntity.ok(service.findAllUnavailable());
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/book/{id}")
     public ResponseEntity<BookResponseDto> update(@RequestBody @Valid BookRequestDto dto, @PathVariable Long id) {
         return ResponseEntity.ok(service.update(dto, id));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/books/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
 
-    @PutMapping("/{id}/restore")
+    @PutMapping("/books/{id}/restore")
     public ResponseEntity<BookResponseDto> restore(@PathVariable Long id) {
         return ResponseEntity.ok(service.restore(id));
     }

@@ -1,5 +1,6 @@
 package com.library.repository;
 
+import com.library.dto.response.BookResponseDto;
 import com.library.entity.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -24,8 +25,8 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     List<Book> findAllUnavailable();
 
     @Query("SELECT b FROM Book b WHERE LOWER(b.title) LIKE LOWER(CONCAT('%', :title, '%'))")
-    Book findByTitle(@Param("title") String title);
+    List<Book> findByTitle(@Param("title") String title);
 
     @Query("SELECT b FROM Book b WHERE LOWER(b.author) LIKE LOWER(CONCAT('%', :author, '%'))")
-    List<Book> findByAuthor(String author);
+    List<Book> findByAuthor(@Param("author") String author);
 }
