@@ -61,7 +61,7 @@ public class BookController {
         return ResponseEntity.ok(service.findAllUnavailable());
     }
 
-    @PutMapping("/book/{id}")
+    @PutMapping("/books/{id}")
     public ResponseEntity<BookResponseDto> update(@RequestBody @Valid BookRequestDto dto, @PathVariable Long id) {
         return ResponseEntity.ok(service.update(dto, id));
     }

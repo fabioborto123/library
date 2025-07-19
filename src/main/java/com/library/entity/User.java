@@ -25,5 +25,4 @@ public class User {
 
     private LocalDate registrationDate;
 
-    private Boolean active;
 }

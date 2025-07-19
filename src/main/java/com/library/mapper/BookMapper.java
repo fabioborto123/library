@@ -36,7 +36,8 @@ public class BookMapper {
     }
 
     public List<BookResponseDto> toResponseDtoList(List<Book> books) {
-        return books.stream().map(this::toResponseDto)
+        return books.stream()
+                .map(this::toResponseDto)
                 .collect(Collectors.toList());
     }
 }
