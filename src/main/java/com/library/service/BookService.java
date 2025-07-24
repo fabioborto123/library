@@ -24,6 +24,7 @@ public class BookService {
     public Book save(BookRequestDto bookDto) {
         Book book = mapper.toEntity(bookDto);
         book.setAvailableQuantity(bookDto.getQuantity());
+        book.setDailyPrice(bookDto.getDailyPrice());
         return repository.save(book);
     }
 

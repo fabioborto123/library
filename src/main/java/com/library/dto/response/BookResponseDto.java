@@ -23,5 +23,5 @@ public class BookResponseDto {
 
     private String category;
 
-    private BigDecimal dailyPrice;
+    private Double dailyPrice;
 }

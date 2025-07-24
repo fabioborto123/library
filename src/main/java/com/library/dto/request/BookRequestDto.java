@@ -27,5 +27,5 @@ public class BookRequestDto {
 
     @NotNull(message = "must not be null")
     @Min(value = 0, message = "minimun value = 0")
-    private BigDecimal dailyPrice;
+    private Double dailyPrice;
 }

@@ -31,6 +31,6 @@ public class Book {
 
     private Boolean deleted = false;
 
-    private BigDecimal dailyPrice;
+    private Double dailyPrice;
 
 }

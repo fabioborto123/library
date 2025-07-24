@@ -41,7 +41,7 @@ public class UserService {
         return mapper.toResponseDto(repository.findByName(name));
     }
 
-    public UserResponseDto update(Long id, @Valid UserRequestDto dto) {
+    public UserResponseDto update(Long id,  UserRequestDto dto) {
         User savedUser = repository.findById(id)
                 .orElseThrow(() -> new IdNotFoundException(id));
 
